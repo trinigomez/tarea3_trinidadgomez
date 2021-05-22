@@ -18,7 +18,7 @@ class Chat extends Component{
           console.log('WebSocket Client Connected');
         };
         socket.on("CHAT", ({name, date, message}) => {
-            this.setState({messages: [ ...this.state.messages, {name, message}]})
+            this.setState({messages: [ ...this.state.messages, {name, date, message}]})
         });
       }
     componentDidUpdate() {
@@ -49,14 +49,20 @@ class Chat extends Component{
 
     render(){
 
-        const messages = this.state.messages.map(({name, message}, index) => {
+        const messages = this.state.messages.map(({name, date, message}, index) => {
             return (
-                    <h3 key={index}>
-                        <b>{name}: {message}</b>
-                    </h3>
+                <div key={index}>
+                    <div className='name-date'>
+                        <h3>{name}:</h3>
+                        <h5>{new Date(date).toLocaleString()}</h5>
+                        
+                    </div>
+                    <h4>{message}</h4>
+                    
+                </div>
             )
         });
-
+    
         return(
             <div>
                 <h1>Chat</h1>

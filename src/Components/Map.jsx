@@ -17,12 +17,8 @@ const socket = io('wss://tarea-3-websocket.2021-1.tallerdeintegracion.cl', {
 class Map extends Component{
 
     state = {
-        flights : []
-    }
-
-    getFlights = e => {
-        e.preventDefault()
-        socket.emit('FLIGHTS')
+        flights : [],
+        positions: {}
     }
 
     componentDidMount() {
@@ -33,14 +29,17 @@ class Map extends Component{
         window.onload = function () {
             socket.emit('FLIGHTS')
         }
+        socket.on("POSITION", ({code, position}) => {
+            this.setState({positions: {...this.state.positions, [code]: position}})
+        })
     }
-
 
     render(){
 
         const planeIcon = L.icon({
             iconUrl: plane,
-            iconSize: [60,60]
+            iconSize: [60,60],
+            iconAnchor: [30,30]
         });
 
         const destinationIcon = L.icon({
@@ -51,8 +50,8 @@ class Map extends Component{
 
         const originIcon = L.icon({
             iconUrl: origin,
-            iconSize: [16,16],
-            iconAnchor: [8,8]
+            iconSize: [10,10],
+            iconAnchor: [5,5]
         })
 
         const allFlights = this.state.flights.map((flight, index) => {
@@ -69,6 +68,16 @@ class Map extends Component{
             )
         });
 
+        const allPositions = Object.keys(this.state.positions).map((code, index) => {
+            return (
+                <Marker position={[this.state.positions[code][0],this.state.positions[code][1]]} icon={planeIcon} key={index}>
+                    <Popup>
+                        Codigo: {code}
+                    </Popup>
+                </Marker>
+            )
+        })
+
 
         return (
             <div>
@@ -77,10 +86,9 @@ class Map extends Component{
                     <h1>asfkjhs</h1>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        maxZoom='6'
-                    />
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"                    />
                     <div>{allFlights}</div>
+                    <div>{allPositions}</div>
                     
                 </MapContainer>
             </div>

@@ -11,7 +11,6 @@ class Chat extends Component{
         name: "",
         message: "",
         messages: [],
-        myRef: React.createRef()
     };
 
     componentDidMount() {
@@ -19,7 +18,6 @@ class Chat extends Component{
           console.log('WebSocket Client Connected');
         };
         socket.on("CHAT", ({name, date, message}) => {
-            console.log(name, message)
             this.setState({messages: [ ...this.state.messages, {name, message}]})
         });
       }

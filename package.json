@@ -12,7 +12,7 @@
     "socket.io-client": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "http://trinigomez.github.io/tarea3_trinidadgomez",
+  "homepage": "https://trinigomez.github.io/tarea3_trinidadgomez",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/tarea3_trinidadgomez/static/css/main.6a7d7dbf.chunk.css",
-    "main.js": "/tarea3_trinidadgomez/static/js/main.6a7a61ce.chunk.js",
-    "main.js.map": "/tarea3_trinidadgomez/static/js/main.6a7a61ce.chunk.js.map",
+    "main.css": "/tarea3_trinidadgomez/static/css/main.2b7a4fbb.chunk.css",
+    "main.js": "/tarea3_trinidadgomez/static/js/main.e83bf492.chunk.js",
+    "main.js.map": "/tarea3_trinidadgomez/static/js/main.e83bf492.chunk.js.map",
     "runtime-main.js": "/tarea3_trinidadgomez/static/js/runtime-main.ed74c939.js",
     "runtime-main.js.map": "/tarea3_trinidadgomez/static/js/runtime-main.ed74c939.js.map",
     "static/css/2.c1e28d34.chunk.css": "/tarea3_trinidadgomez/static/css/2.c1e28d34.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.f0fcad48.chunk.js.map": "/tarea3_trinidadgomez/static/js/3.f0fcad48.chunk.js.map",
     "index.html": "/tarea3_trinidadgomez/index.html",
     "static/css/2.c1e28d34.chunk.css.map": "/tarea3_trinidadgomez/static/css/2.c1e28d34.chunk.css.map",
-    "static/css/main.6a7d7dbf.chunk.css.map": "/tarea3_trinidadgomez/static/css/main.6a7d7dbf.chunk.css.map",
+    "static/css/main.2b7a4fbb.chunk.css.map": "/tarea3_trinidadgomez/static/css/main.2b7a4fbb.chunk.css.map",
     "static/js/2.3fd062ef.chunk.js.LICENSE.txt": "/tarea3_trinidadgomez/static/js/2.3fd062ef.chunk.js.LICENSE.txt",
     "static/media/avion.79973fe4.png": "/tarea3_trinidadgomez/static/media/avion.79973fe4.png",
     "static/media/close.4ba8920d.png": "/tarea3_trinidadgomez/static/media/close.4ba8920d.png",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.ed74c939.js",
     "static/css/2.c1e28d34.chunk.css",
     "static/js/2.3fd062ef.chunk.js",
-    "static/css/main.6a7d7dbf.chunk.css",
-    "static/js/main.6a7a61ce.chunk.js"
+    "static/css/main.2b7a4fbb.chunk.css",
+    "static/js/main.e83bf492.chunk.js"
   ]
 }

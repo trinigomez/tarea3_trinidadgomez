@@ -3,6 +3,7 @@
     width: 40%;
     color: red;
     border: 1px solid red;
+    border-radius: 5px;
     left: 68%; 
     margin-top: 10px;
     margin-bottom: 10px;
@@ -17,6 +18,7 @@
 .messages {
     color: blue;
     border: 1px solid black;
+    border-radius: 5px;
     height: 72vh;
     overflow-y: scroll; 
     scroll-behavior: auto;
@@ -54,9 +56,6 @@
     padding-bottom: 0;
     margin-top: 3px;
 }
-
-
-
 
 .send-message {
     color: plum;

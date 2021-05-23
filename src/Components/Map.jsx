@@ -4,11 +4,13 @@ import 'leaflet/dist/leaflet.css';
 import io from 'socket.io-client'
 import * as L from "leaflet";
 import '../css/map.css'
+import {Modal} from 'reactstrap'
 
 // icons
 import plane from '../images/avion.png'
 import destination from '../images/destination.png'
 import origin from '../images/origin.png'
+import close from '../images/close.png'
 
 const socket = io('wss://tarea-3-websocket.2021-1.tallerdeintegracion.cl', {
     path: '/flights'
@@ -18,13 +20,16 @@ class Map extends Component{
 
     state = {
         flights : [],
-        positions: {}
+        positions: {},
+        modals: {}
     }
 
     componentDidMount() {
-        socket.on ("FLIGHTS",  (data) => {
-            console.log(data)
+        socket.on("FLIGHTS",  (data) => {
             this.setState({flights: data})
+            this.state.flights.forEach(flight => {
+                this.setState({modals: {...this.state.modals, [flight.code]: false}})
+            });
         })
         window.onload = function () {
             socket.emit('FLIGHTS')
@@ -32,6 +37,14 @@ class Map extends Component{
         socket.on("POSITION", ({code, position}) => {
             this.setState({positions: {...this.state.positions, [code]: position}})
         })
+    }
+
+    showInformation = (code) => {
+        console.log(this.state.modals)
+        this.setState(prevState => ({ 
+            modals: {
+            ...this.state.modals,
+            [code]: !prevState.modals[code] }}));
     }
 
     render(){
@@ -78,12 +91,35 @@ class Map extends Component{
             )
         })
 
+        const flightInfo = this.state.flights.map((flight, index) => {
+            return (
+                <div key={index} className="flight" onClick={() => this.showInformation(flight.code)}>
+                    <h1>{flight.code}</h1>
+                    <h3>Origen:</h3>
+                    <h4>lat: {flight.origin[0]}</h4>
+                    <h4>long: {flight.origin[1]}</h4>
+                    <h3>Destino:</h3>
+                    <h4>lat: {flight.destination[0]}</h4>
+                    <h4>long: {flight.destination[1]}</h4>
+                    <Modal isOpen={this.state.modals[flight.code]} className='modal'>
+                        <img src={close} alt="close" onClick={() => this.showInformation(flight.code)}/>
+                        <h1>{flight.code}</h1>
+                        <h3>Origen: {flight.origin}</h3>
+                        <h3>Destino: {flight.destination}</h3>
+                        <h3>Avion: {flight.plane}</h3>
+                        <h3>Asientos: {flight.seats}</h3>
+                        {flight.passengers.map(passenger => (
+                            <li>{passenger.name} ({passenger.age})</li>
+                        ))}
+                    </Modal>
+                </div>
+            )
+        });
 
         return (
             <div>
                 <h1>Mapa</h1>
                 <MapContainer center={[-34.505, -53.09]} zoom={5} scrollWheelZoom={false} className='map'>
-                    <h1>asfkjhs</h1>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"                    />
@@ -91,6 +127,9 @@ class Map extends Component{
                     <div>{allPositions}</div>
                     
                 </MapContainer>
+                <div className='flight-information'>
+                    {flightInfo}
+                </div>
             </div>
         );
     }

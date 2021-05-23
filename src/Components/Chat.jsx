@@ -91,7 +91,7 @@ class Chat extends Component{
                                 placeholder='Escribe un mensaje...'
                             />
                         </div>
-                        <button>Enviar</button>
+                        <button className='update-button'>Enviar</button>
                     </form>
             </div>
           )

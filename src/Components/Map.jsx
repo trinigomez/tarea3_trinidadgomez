@@ -47,6 +47,11 @@ class Map extends Component{
             [code]: !prevState.modals[code] }}));
     }
 
+    updateInfo = () => {
+        socket.emit('FLIGHTS')
+        this.setState({positions: {}})
+    }
+
     render(){
 
         const planeIcon = L.icon({
@@ -128,6 +133,10 @@ class Map extends Component{
                     
                 </MapContainer>
                 <div className='flight-information'>
+                    <div>
+                        <h1>Informacion de vuelos</h1>
+                        <button onClick={this.updateInfo} className='update-button'>Actualizar informacion</button>
+                    </div>
                     {flightInfo}
                 </div>
             </div>

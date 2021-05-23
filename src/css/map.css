@@ -22,8 +22,9 @@
     display: flex;
     overflow-x: scroll; 
     scroll-behavior: auto;
-    width: 98%;
+    width: 72vw;
     padding: 1%;
+    margin-right: 10px;
 }
 
 .flight {
@@ -83,5 +84,20 @@
 }
 
 .modal img:hover {
+    opacity: 0.5;
+}
+
+.update-button {
+    border-radius: 5px;
+    background-color: rgb(20, 173, 173);
+    border: none;
+    color:white;
+    padding: 9px;
+    box-shadow: 2px 2px rgb(197, 195, 195);
+    opacity: 0.9;
+    font-weight: bolder;
+}
+
+.update-button:hover {
     opacity: 0.5;
 }

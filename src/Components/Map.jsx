@@ -124,7 +124,7 @@ class Map extends Component{
         return (
             <div>
                 <h1>Mapa</h1>
-                <MapContainer center={[-34.505, -53.09]} zoom={5} scrollWheelZoom={false} className='map'>
+                <MapContainer center={[-34.505, -53.09]} zoom={2.5} scrollWheelZoom={false} className='map'>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"                    />

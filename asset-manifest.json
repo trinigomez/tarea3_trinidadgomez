@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tarea3_trinidadgomez/static/css/main.2b7a4fbb.chunk.css",
-    "main.js": "/tarea3_trinidadgomez/static/js/main.e83bf492.chunk.js",
-    "main.js.map": "/tarea3_trinidadgomez/static/js/main.e83bf492.chunk.js.map",
+    "main.js": "/tarea3_trinidadgomez/static/js/main.08169dba.chunk.js",
+    "main.js.map": "/tarea3_trinidadgomez/static/js/main.08169dba.chunk.js.map",
     "runtime-main.js": "/tarea3_trinidadgomez/static/js/runtime-main.ed74c939.js",
     "runtime-main.js.map": "/tarea3_trinidadgomez/static/js/runtime-main.ed74c939.js.map",
     "static/css/2.c1e28d34.chunk.css": "/tarea3_trinidadgomez/static/css/2.c1e28d34.chunk.css",
@@ -24,6 +24,6 @@
     "static/css/2.c1e28d34.chunk.css",
     "static/js/2.3fd062ef.chunk.js",
     "static/css/main.2b7a4fbb.chunk.css",
-    "static/js/main.e83bf492.chunk.js"
+    "static/js/main.08169dba.chunk.js"
   ]
 }
